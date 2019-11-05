@@ -7,13 +7,15 @@ import {
   // Link
 } from 'react-router-dom';
 import Home from '../containers/Home';
+import List from '../containers/List';
 
 export default function App() {
   return (
     <Router>
       <Header />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route path="/list" component={List} />
       </Switch>
     </Router>
   );

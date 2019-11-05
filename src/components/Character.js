@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ _id, image, name }) => {
+const Character = ({ character }) => {
   return (
-    <div key={_id}>
-      <img src={image} alt={name} />
-      <p>
-        {name}
-      </p>
+    <div key={character._id}>
+      <img src={character.photoUrl} alt={character.name} />
+      <p>{name}</p>
     </div>
   );
 };
 Character.propTypes = {
-  _id: PropTypes.string,
-  name: PropTypes.string,
-  image: PropTypes.string
+  character: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    photoUrl: PropTypes.string
+  }),
 };
 export default Character;

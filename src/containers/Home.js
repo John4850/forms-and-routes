@@ -4,7 +4,7 @@ import getOneRandomCharacter from '../../services/AvatarAPI';
 import Form from './Form';
 
 
-export default class home extends Component {
+export default class Home extends Component {
 
   state = {
     character: {}
@@ -26,13 +26,8 @@ export default class home extends Component {
   render() {
     return (
       <>
-        <Character
-          _id={this.state.character._id}
-          name={this.state.character.name}
-          image={this.state.character.photoUrl}
-        />
+        <Character character={this.state.character}/>
         <button onClick={()=> this.handleClick()}>New Random Character</button>
-
         <Form />
       </>
     );

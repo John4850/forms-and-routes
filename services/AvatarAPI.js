@@ -9,5 +9,12 @@ const getOneRandomCharacter = () => {
     });
 };
 
+const getByName = ({ name }) => {
+  return fetch(`${URL}/api/v1/characters?name=${name}`).then(response => response.json())
+    .then(response => {
+      return response;
+    });
+};
+
 // eslint-disable-next-line no-undef
-module.exports = getOneRandomCharacter;
+module.exports = getOneRandomCharacter, getByName;

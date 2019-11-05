@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getByName from '../../services/AvatarAPI';
 
 export default class Form extends Component {
   static propTypes = {
-    search: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired
   }
 
   state = {
-    character: {
-      name: '',
-    },
+    name: '',
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.search.push(`/${this.state.character.name}`);
+    getByName({ name }).then(res => {
+      this.setState({ characters: [res] });
+    });
+    this.props.history.push(`list/${this.state.name}`);
   }
 
   handleChange = ({ target }) => {
