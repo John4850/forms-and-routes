@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Character from '../components/Character';
 import getOneRandomCharacter from '../../services/AvatarAPI';
+import Form from './Form';
 
 
 export default class home extends Component {
@@ -31,6 +32,8 @@ export default class home extends Component {
           image={this.state.character.photoUrl}
         />
         <button onClick={()=> this.handleClick()}>New Random Character</button>
+
+        <Form />
       </>
     );
   }
