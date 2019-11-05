@@ -6,33 +6,19 @@ import getOneRandomCharacter from '../../services/AvatarAPI';
 export default class home extends Component {
 
   state = {
-    id: '',
-    name: '',
-    photoUrl: '',
-    age: '',
-    gender: '',
-    hair: '',
-    weapon: '',
-    love: '',
-    affiliation: '',
-    allies: [],
-    enemies: [],
+    character: {}
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     getOneRandomCharacter()
       .then(res => this.setState({
-        id: res._id,
-        name: res.name,
-        photoUrl: res.photoUrl,
-        age: res.age,
-        gender: res.gender,
-        hair: res.hair,
-        weapon: res.weapon,
-        love: res.love,
-        affiliation: res.affiliation,
-        allies: res.allies,
-        enemies: res.enemies,
+        character: res[0]
+      }));
+  }
+  handleClick() {
+    getOneRandomCharacter()
+      .then(res => this.setState({
+        character: res[0]
       }));
   }
 
@@ -40,10 +26,11 @@ export default class home extends Component {
     return (
       <>
         <Character
-          _id={this.state._id}
-          name={this.state.name}
-          image={this.state.photoUrl}
+          _id={this.state.character._id}
+          name={this.state.character.name}
+          image={this.state.character.photoUrl}
         />
+        <button onClick={()=> this.handleClick()}>New Random Character</button>
       </>
     );
   }
