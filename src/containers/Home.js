@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Character from '../components/Character';
-import { getOneRandomCharacter, getByName } from '../../services/AvatarAPI';
+import { getOneRandomCharacter, getByName } from '../services/AvatarAPI';
 import Form from '../components/Form';
 import List from '../components/List';
 
