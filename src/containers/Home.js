@@ -49,7 +49,7 @@ export default class Home extends Component {
 
   handlePageBackward() {
     this.setState(state => {
-      if (state.page > 1) {
+      if(state.page > 1) {
         return ({ page: state.page - 1 });
       }
     });
