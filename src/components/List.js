@@ -1,5 +1,5 @@
 import React from 'react';
-import Character from '../components/Character';
+import Character from './Character';
 import PropTypes from 'prop-types';
 
 const List = ({ characters, handlePageBackward, handlePageForward, handleCharacterClick }) => {

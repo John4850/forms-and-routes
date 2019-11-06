@@ -7,7 +7,7 @@ import {
   // Link
 } from 'react-router-dom';
 import Home from '../containers/Home';
-import List from '../containers/List';
+import List from './List';
 
 export default function App() {
   return (

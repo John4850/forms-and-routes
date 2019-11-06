@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Character from '../components/Character';
 import { getOneRandomCharacter, getByName } from '../../services/AvatarAPI';
-import Form from './Form';
-import List from './List';
+import Form from '../components/Form';
+import List from '../components/List';
 
 
 export default class Home extends Component {
@@ -17,9 +17,9 @@ export default class Home extends Component {
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-    console.log(this.state);
 
   }
+
   componentDidMount() {
     getOneRandomCharacter()
       .then(res => this.setState({
@@ -27,7 +27,7 @@ export default class Home extends Component {
       }));
   }
 
-  handleRandomClick() {
+  handleRandomClick = () => {
     getOneRandomCharacter()
       .then(res => this.setState({
         character: res[0]
@@ -61,6 +61,7 @@ export default class Home extends Component {
 
 
   render() {
+    console.log(this.state);
     return (
       <>
         <Character character={this.state.character} />
