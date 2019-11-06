@@ -1,36 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import getByName from '../../services/AvatarAPI';
 
-export default class Form extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired
-  }
 
-  state = {
-    name: '',
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    getByName({ name }).then(res => {
-      this.setState({ characters: [res] });
-    });
-    this.props.history.push(`list/${this.state.name}`);
-  }
-
-  handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
-  }
-
-  render() {
-    const { name } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text' name='name' value={name} onChange={this.handleChange}/>
+export default function Form({ handleSubmit, handleChange, nameQuery }) {
+  Form.propTypes = {
+    history: PropTypes.array.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    nameQuery: PropTypes.string.isRequired
+  };
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input type='text' name='nameQuery' value={nameQuery} onChange={handleChange} />
         <button>Search</button>
       </form>
-    );
+    </>
+  );
 
-  }
 }
+

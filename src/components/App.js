@@ -14,8 +14,8 @@ export default function App() {
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/list" component={List} />
+        <Route path="/" component={Home} />
+        <Route path="/list/:name" component={List} />
       </Switch>
     </Router>
   );
